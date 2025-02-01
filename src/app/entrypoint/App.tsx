@@ -1,11 +1,13 @@
+import { Main } from "../../pages/main";
 
 function App() {
-
   return (
     <>
-     <h1 className='text-green-500 text-3xl m-10'>Calculator React + Vite + TailwindCSS</h1>
+      <div>
+        <Main />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
