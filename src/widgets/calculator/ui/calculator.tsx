@@ -86,7 +86,13 @@ export const Calculator = () => {
               className="col-span-2"
               onClick={(j) => {
                 if (counts != "0") {
+                  const matches = counts.match(/\d+/g);
+                  const lastValue = matches
+                    ? matches[matches.length - 1]
+                    : null;
+
                   if (
+                    (lastValue ? lastValue[0] : "") === "0" &&
                     (j.target as HTMLElement).innerHTML == "0" &&
                     counts[counts.length - 1] === "0" &&
                     !counts.includes(".")
