@@ -70,10 +70,10 @@ export const Calculator = () => {
       </header>
 
       <div className="grid h-36 justify-end bg-transparent p-5 text-xl text-slate-600 focus:outline-none">
-        <div className="scrollbar-hide h-7 w-64 overflow-x-auto text-right">
+        <div className="h-7 w-64 overflow-x-auto text-right scrollbar-hide">
           {counts}
         </div>
-        <div className="scrollbar-hide w-64 overflow-x-auto text-right text-6xl font-medium text-black">
+        <div className="w-64 overflow-x-auto text-right text-6xl font-medium text-black scrollbar-hide">
           {result}
         </div>
       </div>
@@ -173,7 +173,7 @@ export const Calculator = () => {
                   ) {
                     if (counts != "0") {
                       if (
-                        /\D0$/.test(counts) &&
+                        /[^.\d]0$/.test(counts) &&
                         !isNaN(Number((j.target as HTMLElement).innerHTML))
                       ) {
                         return;
