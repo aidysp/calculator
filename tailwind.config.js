@@ -10,7 +10,11 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
-    extend: {},
+    extend: {
+      screens: {
+        betterhover: { raw: "(hover: hover)" },
+      },
+    },
   },
   plugins: [scrollbarHide],
 };
