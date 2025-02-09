@@ -1,10 +1,10 @@
-import { Main } from "../../pages/main";
+import { Calculator } from "../../widgets/calculator";
 
 function App() {
   return (
     <>
-      <div>
-        <Main />
+      <div className="grid h-screen w-screen overflow-hidden bg-gradient-to-tr from-[#58BEF6] to-emerald-400">
+        <Calculator />
       </div>
     </>
   );
