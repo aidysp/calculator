@@ -15,7 +15,7 @@ export const Button: FC<ButtonProps> = ({ children, active, bg = true }) => {
 
   if (active) {
     return (
-      <button className="align-center grid h-full w-full rounded-[0.7vw] bg-[#56CB95] p-[1vw] text-[1.5vw] text-white transition-all active:bg-[#4edb99] betterhover:hover:bg-[#4edb99]">
+      <button className="align-center grid h-full w-full items-center rounded-[0.7vw] bg-[#56CB95] p-[1vw] text-[1.5vw] text-white transition-all active:bg-[#4edb99] betterhover:hover:bg-[#4edb99]">
         {children}
       </button>
     );
