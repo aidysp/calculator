@@ -189,8 +189,12 @@ export const Calculator = () => {
                       )
                     ) {
                       if (counts != "0") {
+                        const matches = counts.match(/\d+(?:\.\d+)?/g);
+                        console.log("matches: ", matches);
+                        console.log("Counts: ", counts);
                         if (
-                          counts.includes(".") &&
+                          matches &&
+                          matches[matches.length - 1].includes(".") &&
                           (j.target as HTMLElement).innerHTML === "."
                         ) {
                           return;
