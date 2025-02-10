@@ -48,8 +48,8 @@ export const Calculator = () => {
           Copied to clipboard!!
         </div>
       )}
-      <div className="w-screen/20 h-screen/90 relative mx-auto my-auto grid rounded-[1vw] bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
-        <header className="w-screen/20 h-screen/10 flex justify-between p-[.5vw] pt-[1vw]">
+      <div className="relative mx-auto my-auto grid h-screen/90 w-screen/20 rounded-[1vw] bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
+        <header className="flex h-screen/10 w-screen/20 justify-between p-[.5vw] pt-[1vw]">
           <div>
             <Button bg={false}>
               <svg
@@ -83,7 +83,7 @@ export const Calculator = () => {
           </div>
         </header>
 
-        <div className="w-screen/20 h-screen/20 grid justify-end pr-[.5vw] text-slate-600 focus:outline-none dark:text-slate-100">
+        <div className="grid h-screen/20 w-screen/20 justify-end pr-[.5vw] text-slate-600 focus:outline-none dark:text-slate-100">
           <div className="w-screen/20 overflow-x-auto text-right text-[1.4vw] scrollbar-hide">
             {counts}
           </div>
@@ -96,7 +96,7 @@ export const Calculator = () => {
           </div>
         </div>
 
-        <div className="w-screen/20 grid h-[50vh] max-h-[50vh] auto-rows-max grid-cols-4 gap-[.5vw] p-[0.5vw]">
+        <div className="grid h-[50vh] max-h-[50vh] w-screen/20 auto-rows-max grid-cols-4 gap-[.5vw] p-[0.5vw]">
           {operations.map((e: string, index: number) => {
             return e == "0" ? (
               <div
@@ -189,6 +189,13 @@ export const Calculator = () => {
                       )
                     ) {
                       if (counts != "0") {
+                        if (
+                          counts.includes(".") &&
+                          (j.target as HTMLElement).innerHTML === "."
+                        ) {
+                          return;
+                        }
+
                         if (
                           /[^.\d]0$/.test(counts) &&
                           !isNaN(Number((j.target as HTMLElement).innerHTML))
