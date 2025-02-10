@@ -18,6 +18,24 @@ const checkExpressionsType = (lastData: string, pressKey: string): boolean => {
   return expressionKey;
 };
 
+const formatResult = (num: number): string => {
+  if (isNaN(num)) return "Error";
+
+  const absNum = Math.abs(num);
+
+  if (absNum === 0) return "0";
+
+  if (absNum >= 1e8 || absNum < 1e-6) {
+    return String(num.toExponential(2));
+  }
+
+  if (Number.isInteger(num)) {
+    return String(num.toString());
+  }
+
+  return String(num.toFixed(6).replace(/\.?0+$/, ""));
+};
+
 export const Calculator = () => {
   const [counts, setCounts] = useState("0");
   const [result, setResult] = useState("0");
@@ -83,16 +101,16 @@ export const Calculator = () => {
           </div>
         </header>
 
-        <div className="grid h-screen/20 w-screen/20 justify-end pr-[.5vw] text-slate-600 focus:outline-none dark:text-slate-100">
-          <div className="w-screen/20 overflow-x-auto text-right text-[1.4vw] scrollbar-hide">
-            {counts}
+        <div className="grid h-screen/20 w-screen/20 justify-end overflow-hidden text-slate-600 focus:outline-none dark:text-slate-100">
+          <div className="w-screen/20 overflow-x-scroll text-right text-[1.4vw] scrollbar-hide">
+            <div className="mx-[1vw]">{counts}</div>
           </div>
           <div
             title="click to copy"
             onClick={handleCopy}
-            className="w-screen/20 cursor-pointer overflow-x-auto text-right text-[4vw] font-medium text-black scrollbar-hide dark:text-white"
+            className="w-screen/20 cursor-pointer overflow-x-scroll text-right text-[4vw] font-medium text-black scrollbar-hide dark:text-white"
           >
-            {result}
+            <div className="mx-[1vw]">{formatResult(Number(result))}</div>
           </div>
         </div>
 
@@ -176,6 +194,7 @@ export const Calculator = () => {
               </div>
             ) : (
               <div
+                className="rounded-[0.7vw]"
                 key={index}
                 onClick={(j) => {
                   if (e == "CE") {
