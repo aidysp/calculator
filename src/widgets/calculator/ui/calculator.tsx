@@ -66,7 +66,7 @@ export const Calculator = () => {
           Copied to clipboard!!
         </div>
       )}
-      <div className="relative mx-auto my-auto grid h-screen/90 w-screen/20 rounded-[1vw] bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
+      <div className="relative mx-auto my-auto grid w-screen/20 gap-y-5 rounded-[1vw] bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] lg:gap-y-2 md:gap-1 dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
         <header className="flex h-screen/10 w-screen/20 justify-between p-[.5vw] pt-[1vw]">
           <div>
             <Button bg={false}>
@@ -114,7 +114,7 @@ export const Calculator = () => {
           </div>
         </div>
 
-        <div className="grid h-[50vh] max-h-[50vh] w-screen/20 auto-rows-max grid-cols-4 gap-[.5vw] p-[0.5vw]">
+        <div className="grid w-screen/20 auto-rows-max grid-cols-4 gap-[.5vw] p-[0.5vw]">
           {operations.map((e: string, index: number) => {
             return e == "0" ? (
               <div
