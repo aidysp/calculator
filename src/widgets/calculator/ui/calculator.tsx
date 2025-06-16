@@ -66,12 +66,12 @@ export const Calculator = () => {
           Copied to clipboard!!
         </div>
       )}
-      <div className="relative mx-auto my-auto grid w-screen/20 gap-y-5 rounded-[1vw] bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] lg:gap-y-2 md:gap-1 dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
-        <header className="flex h-screen/10 w-screen/20 justify-between p-[.5vw] pt-[1vw]">
+      <div className="relative md:mx-auto  min-h-[500px] max-h-[90vh] md:my-auto h-screen w-screen md:w-screen/20 grid gap-y-5 rounded-[1vw] bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] lg:gap-y-2 md:gap-1 dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
+        <header className="flex md:h-screen/10 md:w-screen/20 justify-between p-[.5vw] pt-[1vw]">
           <div>
             <Button bg={false}>
               <svg
-                className="max-w-[95%]"
+                className="w-6 h-6 md:w-[2vw] md:h-[2vw]"
                 viewBox="0 0 35 35"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ export const Calculator = () => {
           <div>
             <Button bg={false}>
               <svg
-                className="max-w-[95%]"
+                className="w-6 h-6 md:w-[2vw] md:h-[2vw] "
                 viewBox="0 0 36 36"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,20 +101,20 @@ export const Calculator = () => {
           </div>
         </header>
 
-        <div className="grid h-screen/20 w-screen/20 justify-end overflow-hidden text-slate-600 focus:outline-none dark:text-slate-100">
-          <div className="w-screen/20 overflow-x-scroll text-right text-[1.4vw] scrollbar-hide">
+        <div className="grid md:h-screen/20 md:w-screen/20  justify-end overflow-hidden text-slate-600 focus:outline-none dark:text-slate-100">
+          <div className="md:w-screen/20 overflow-x-scroll text-right text-[1.4vw] scrollbar-hide">
             <div className="mx-[1vw]">{counts}</div>
           </div>
           <div
             title="click to copy"
             onClick={handleCopy}
-            className="w-screen/20 cursor-pointer overflow-x-scroll text-right text-[4vw] font-medium text-black scrollbar-hide dark:text-white"
+            className="md:w-screen/20  cursor-pointer overflow-x-scroll text-right text-[100%] md:text-[4vw] font-medium text-black scrollbar-hide dark:text-white"
           >
             <div className="mx-[1vw]">{formatResult(Number(result))}</div>
           </div>
         </div>
 
-        <div className="grid w-screen/20 auto-rows-max grid-cols-4 gap-[.5vw] p-[0.5vw]">
+        <div className="grid md:w-screen/20  grid-cols-4 gap-[.5vw] p-[0.5vw]">
           {operations.map((e: string, index: number) => {
             return e == "0" ? (
               <div
@@ -171,7 +171,7 @@ export const Calculator = () => {
               >
                 <Button>
                   <svg
-                    className="max-w-[95%]"
+                    className="p-[8vw] md:max-w-[95%] md:p-[0]"
                     viewBox="0 0 40 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
