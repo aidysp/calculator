@@ -1,6 +1,6 @@
 export const operations: string[] = [
   "CE",
-  "del",
+  "DEL",
   "/",
   "*",
   "7",
