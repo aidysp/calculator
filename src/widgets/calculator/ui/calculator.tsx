@@ -62,7 +62,7 @@ export const Calculator = () => {
   return (
     <>
       {" "}
-      <div className="relative h-screen md:my-auto sm:h-[95vh] w-screen grid gap-y-5 sm:rounded-lg sm:w-72 sm:mr-auto sm:ml-auto bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] lg:gap-y-2 md:gap-1 dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
+      <div className="relative h-screen md:my-auto sm:h-[95vh] sm:w-72 2xl:w-[90%] 2xl:text-5xl 2xl:h-full w-screen grid gap-y-5 sm:rounded-lg sm:mr-auto sm:ml-auto bg-[linear-gradient(135deg,_#fbfbfb_0%,_rgba(251,_251,_251,_0.33)_83.5%,_rgba(251,_251,_251,_0.2)_100%)] lg:gap-y-2 md:gap-1 dark:bg-[linear-gradient(136deg,_#424242_0%,_rgba(66,_66,_66,_0.4)_100%)]">
         <header>
           
         </header>
@@ -112,17 +112,18 @@ export const Calculator = () => {
               >
                 <Button>{e}</Button>
               </div>
-            ) : e == "=" ? (
+            ) : index == 0 ? (
               <div
                 key={index}
-                className="row-span-2"
+                className="col-span-2"
                 onClick={() => {
-                  setResult(eval(counts));
+                    setCounts("0");
+                    setResult("0");
                 }}
               >
-                <Button active={true}>{e}</Button>
+                <Button active={false}>{e}</Button>
               </div>
-            ) : e == "DEL" ? (
+            )  : e == "DEL" ? (
               <div
                 key={index}
                 onClick={() => {
@@ -141,13 +142,10 @@ export const Calculator = () => {
               </div>
             ) : (
               <div
-                className=""
                 key={index}
+                className={(e == "+") ? "row-span-2" : ""}
                 onClick={(j) => {
-                  if (e == "CE") {
-                    setCounts("0");
-                    setResult("0");
-                  } else {
+             
                     if (
                       checkExpressionsType(
                         counts[counts.length - 1],
@@ -188,9 +186,9 @@ export const Calculator = () => {
                       setResult("");
                     }
                   }
-                }}
+                }
               >
-                <Button>{e}</Button>
+                {e == "+" ? <Button active={true}>{e}</Button> :<Button>{e}</Button>}
               </div>
             );
           })}
